@@ -29,6 +29,8 @@
     <artifactId>keycloak-adapter-core</artifactId>
     <name>Keycloak Adapter Core</name>
     <description/>
+    
+    
 
     <properties>
         <keycloak.osgi.export>
@@ -98,6 +100,15 @@
     </dependencies>
     <build>
         <plugins>
+        
+        	<plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+    		<artifactId>maven-jar-plugin</artifactId>
+		    <configuration>
+        		<finalName>${project.artifactId}-${project.version}-WLPatched</finalName>                   
+    		</configuration>
+			</plugin>  
+        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -129,7 +140,7 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
+                <configuration>                	
                     <instructions>
                         <Bundle-ClassPath>.</Bundle-ClassPath>
                         <Bundle-Name>${project.name}</Bundle-Name>
